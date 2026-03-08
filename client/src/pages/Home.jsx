@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Dashboard from "../components/Dashboard";
 import InfoCard from "../components/InfoCard";
-import { WalletCards } from "lucide-react";
+import { Loader2, WalletCards } from "lucide-react";
 import { addThousandsSeparator } from "../util/addThousandsSeparator";
 import { useNavigate } from "react-router-dom";
 import { axiosConfig } from "../util/config";
@@ -42,7 +42,12 @@ const Home = () => {
   
   return(
   <Dashboard activeMenu="Dashboard">
-    <div className="my-5 mx-auto">
+    {loading ? (
+      <div className="max-h-screen w-full flex items-center justify-center">
+        <Loader2 size={25} className="animate-spin text-purple-800" />
+      </div>
+    ) : (
+      <div className="my-5 mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <InfoCard 
         icon={<WalletCards />}
@@ -88,6 +93,7 @@ const Home = () => {
 
       </div>
     </div>
+    )}
   </Dashboard>
   )
 };
