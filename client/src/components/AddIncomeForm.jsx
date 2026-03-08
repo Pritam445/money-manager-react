@@ -3,7 +3,7 @@ import EmojiPickerPopUp from "./EmogiPickerPopUp";
 import Input from "./Input";
 import { Loader2 } from "lucide-react";
 
-const AddIncomeForm = ({ onAddIncome,loading, categories }) => {
+const AddIncomeForm = ({ onAddIncome,loading, categories, type }) => {
   const [income, setIncome] = useState({
     name: "",
     amount: "",
@@ -32,7 +32,7 @@ const AddIncomeForm = ({ onAddIncome,loading, categories }) => {
 
         value={income.name}
         onChange={({ target }) => handleChange("name", target.value)}
-        label="Income Source"
+        label={type === "income" ? "Income Source" : "Expense Source"}
         placeholder={"e.g., Salary, Freelance, Bonus..."}
         type={"text"}
       />
@@ -67,7 +67,7 @@ const AddIncomeForm = ({ onAddIncome,loading, categories }) => {
             <div className="w-full flex items-center justify-center gap-2">
                 <Loader2 className="animate-spin text-white" /> Adding...
             </div>
-          ) : "Add Income"}
+          ) : type === "income" ? "Add Income" : "Add Expense"}
         </button>
       </div>
     </div>

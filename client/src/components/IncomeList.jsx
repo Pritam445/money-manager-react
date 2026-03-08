@@ -4,7 +4,7 @@ import TransactionInfoCard from './TransactionInfoCard'
 import moment from 'moment'
 import toast from 'react-hot-toast'
 
-const IncomeList = ({transactions, onDelete, onDownload, onEmail}) => {
+const IncomeList = ({transactions, onDelete, onDownload, onEmail,type}) => {
 
     const [loadingDownload, setLoadingDownload] = useState(false);
     const [loadingEmail, setLoadingEmail] = useState(false);
@@ -92,7 +92,7 @@ const IncomeList = ({transactions, onDelete, onDownload, onEmail}) => {
                  title={transaction.name}
                  date={moment(transaction.date).format("MMM DD, YYYY")}
                  amount={transaction.amount}
-                 type="income"
+                 type={type}
                  onDelete = {() => onDelete(transaction.id)}
                  />
             ))}

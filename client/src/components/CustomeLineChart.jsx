@@ -13,7 +13,7 @@ import {
 
 import { RechartsDevtools } from "@recharts/devtools";
 
-export default function CustomLineChart({ data }) {
+export default function CustomLineChart({ data, type }) {
 
   const formatCurrency = (value) =>
     `₹${Number(value).toLocaleString("en-IN")}`;
@@ -110,7 +110,7 @@ export default function CustomLineChart({ data }) {
           <Line
             type="monotone"
             dataKey="amount"
-            name="Income"
+            name={type}
             stroke="#7c3aed"
             strokeWidth={3}
             dot={{ r: 4, strokeWidth: 2 }}

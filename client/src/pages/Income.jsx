@@ -212,14 +212,14 @@ const Income = () => {
         <div>
           {/* overview for income with line chart  */}
           
-          <IncomeOverview transactions={incomeData} onAddIncome={() => setOpenAddIncomeModel(true)} />
+          <IncomeOverview transactions={incomeData} onAddIncome={() => setOpenAddIncomeModel(true)} title={"Income Overview"} type={"income"}/>
         </div>
-        <IncomeList onDownload = {handleDownloadIncomeDetails} onEmail={handleEmailIncomeDetails} transactions={incomeData} onDelete={(id) => setOpenDeleteIncomeModel({ show: true, data: id })} />
+        <IncomeList type={"income"} onDownload = {handleDownloadIncomeDetails} onEmail={handleEmailIncomeDetails} transactions={incomeData} onDelete={(id) => setOpenDeleteIncomeModel({ show: true, data: id })} />
 
           {/* Add income model  */}
 
           <Model isOpen={openAddIncomeModel} onClose={() => setOpenAddIncomeModel(false)} title="Add Income">
-            <AddIncomeForm onAddIncome={handleAddIncome} loading={loading} categories={categoryData} />
+            <AddIncomeForm type={"income"} onAddIncome={handleAddIncome} loading={loading} categories={categoryData} />
 
           </Model>
 
@@ -229,7 +229,7 @@ const Income = () => {
           onClose={() => setOpenDeleteIncomeModel({ show: false, data: null })}
           title="Delete Income"
            >
-            <DeleteAlert content={"Are you sure want to delete this icome details?"} onDelete={() => handleIncomeDelete(openDeleteIncomeModel.data)} />
+            <DeleteAlert content={"Are you sure want to delete this income details?"} onDelete={() => handleIncomeDelete(openDeleteIncomeModel.data)} />
 
            </Model>
       </div>
