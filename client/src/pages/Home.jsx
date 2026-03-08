@@ -43,8 +43,9 @@ const Home = () => {
   return(
   <Dashboard activeMenu="Dashboard">
     {loading ? (
-      <div className="max-h-screen w-full flex items-center justify-center">
-        <Loader2 size={25} className="animate-spin text-purple-800" />
+      <div className="min-h-screen relative w-full flex items-center justify-center">
+        
+        <Loader2 size={80} className="animate-spin text-purple-800" />
       </div>
     ) : (
       <div className="my-5 mx-auto">
